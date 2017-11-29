@@ -13,9 +13,14 @@ echo "Now installing zsh..."
 echo ''
 sudo apt install zsh -y
 
-# Installing git completion echo '' 
+# Installing git completion
+echo ''
 echo "Now installing git and bash-completion..." 
 sudo apt-get install git bash-completion -y
+
+echo ''
+echo "Now installing curl..."
+sudo apt-get install curl
 
 echo '' 
 echo "Now configuring git-completion..." 
@@ -49,7 +54,10 @@ git clone git://github.com/zsh-users/zsh-autosuggestions ~/.zsh/zsh-autosuggesti
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh/zsh-syntax-highlighting
 
 # install z.sh
-
+echo ''
+echo "Now installing z.sh..."
+echo ''
+curl https://raw.githubusercontent.com/bdurrani/dotfiles-for-wsl/master/z-plugin/z.sh -o ~/z.sh
 
 # powerlevel9k install
 echo ''
@@ -90,8 +98,18 @@ echo ''
 echo "source $HOME/.zsh/zsh-autosuggestions/zsh-autosuggestions.zsh" >> ${ZDOTDIR:-$HOME}/.zshrc && echo "added zsh-autosuggestions to .zshrc..."
 echo ''
 echo "source $HOME/.git-completion.bash" >> ${ZDOTDIR:-$HOME}/.bashrc && echo "added git-completion to .bashrc..."
+echo ''
+echo "source $HOME/z.sh" >> ${ZDOTDIR:-$HOME}/.zshrc && echo "added z.sh to .zshrc..."
 
 # Set default shell to zsh
+echo " To make zsh your default shell, add the
+following to the top of ~/.bashrc and restart your terminal
+
+ # launch zsh
+ if [ -t 1 ]; then
+    exec zsh
+ fi
+"
 echo ''
 read -p "Do you want to change your default shell? y/n" -n 1 -r
 echo ''
@@ -107,13 +125,3 @@ then
 	fi
 fi
 echo ''
-
-echo " To make zsh your default shell, add the 
-following to the top of ~/.bashrc
-
- # launch zsh
- if [ -t 1 ]; then
-    exec zsh
- fi
-"
-
