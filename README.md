@@ -19,7 +19,7 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/bdurrani/dotfiles-for-wsl/
 Run this:
 
 ```sh
-git clone https://github.com/holman/dotfiles.git ~/.dotfiles
+git clone git@github.com:bdurrani/dotfiles-for-wsl.git ~/.dotfiles
 cd ~/.dotfiles
 script/bootstrap
 ```
