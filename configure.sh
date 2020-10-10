@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 # configuration script based on https://raw.githubusercontent.com/jldeen/dotfiles/wsl/configure.sh
 # found via post: http://jessicadeen.com/tech/microsoft/badass-terminal-fcu-wsl-edition-oh-my-zsh-powerlevel9k-tmux-and-more/
@@ -125,3 +127,6 @@ then
 	fi
 fi
 echo ''
+
+echo 'Install fzf'
+sudo apt install fzf
